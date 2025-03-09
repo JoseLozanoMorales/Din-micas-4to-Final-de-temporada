@@ -1,5 +1,5 @@
 Objetivos ✔
-Crear un sistema de gestión de ventas para un pequeño local de venta de computadoras
+ |Crear un sistema de gestión de ventas para un pequeño local de venta de computadoras
 
 Roles 👤
 José Lozano: Lider y encargado de la documentación
