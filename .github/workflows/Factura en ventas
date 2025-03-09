@@ -1,0 +1,54 @@
+private void btnImprimir_Click(object sender, EventArgs e)
+{
+try
+{
+prdImprimir = new PrintDocument();
+PrinterSettings ps = new PrinterSettings();
+prdImprimir.PrinterSettings = ps;
+prdImprimir.PrintPage += Imprimir;
+prdImprimir.Print();
+var selectedCell = dgvProductos.SelectedCells[0];
+int selectedRowIndex = selectedCell.RowIndex;
+DataGridViewRow selectedRow = dgvProductos.Rows[selectedRowIndex];
+string Producto = Convert.ToString(selectedRow.Cells["Producto"].Value);
+string CantidadS = Convert.ToString(selectedRow.Cells["CantidadS"].Value);
+string CantidadE = Convert.ToString(selectedRow.Cells["CantidadE"].Value);
+string PrecioC = Convert.ToString(selectedRow.Cells["PrecioC"].Value);
+csDatosOrden.Producto = Producto;
+csDatosOrden.CantidadS = CantidadS;
+csDatosOrden.CantidadE = CantidadE;
+csDatosOrden.PrecioU = PrecioC;
+}
+catch (Exception ex)
+{
+MessageBox.Show("Error al imprimir: " + ex.Message);
+}
+
+}
+
+private void Imprimir(object sender, PrintPageEventArgs e)
+{
+float y = 390;
+int id = csGlobalVariablesOC.MiVariableGlobalOC;
+string fechaS = csDatosOrden.FechaEmision;
+string fechaE = csDatosOrden.FechaEntrega;
+string proveedor = csDatosOrden.NombreProveedor;
+string admin = csDatosOrden.Administrador;
+string producto = csDatosOrden.Producto;
+string cantidadS = csDatosOrden.CantidadS;
+string cantidadE = csDatosOrden.CantidadE;
+string PrecioU = csDatosOrden.PrecioU;
+string ValT = csDatosOrden.PrecioT;
+//e.Graphics.DrawImage(imlImagenes.Images[0], new RectangleF(100, 0, imlImagenes.Images[0].Width / 2, imlImagenes.Images[0].Height / 2));
+Font fuente = new Font("Arial", 20, FontStyle.Bold);
+e.Graphics.DrawString("Wachiturros Center", fuente, Brushes.BlueViolet, new RectangleF(275, 20, 300, 40));
+fuente = new Font("Arial", 12, FontStyle.Bold);
+e.Graphics.DrawString("Factura:", fuente, Brushes.Black, new RectangleF(0, 100, 90, 50));
+e.Graphics.DrawString($"{id}", fuente, Brushes.Black, new RectangleF(160, 100, 130, 50));
+e.Graphics.DrawString("Fecha de emision:", fuente, Brushes.Black, new RectangleF(0, 140, 210, 50));
+e.Graphics.DrawString($"{fechaS}", fuente, Brushes.Black, new RectangleF(160, 140, 130, 50));
+e.Graphics.DrawString("Fecha de entrega:", fuente, Brushes.Black, new RectangleF(0, 180, 210, 50));
+e.Graphics.DrawString($"{fechaE}", fuente, Brushes.Black, new RectangleF(160, 180, 130, 50));
+e.Graphics.DrawString("Proveedor:", fuente, Brushes.Black, new RectangleF(0, 220, 100, 50));
+e.Graphics.DrawString($"{proveedor}", fuente, Brushes.Black, new RectangleF(160, 220, 130, 50));
+}
