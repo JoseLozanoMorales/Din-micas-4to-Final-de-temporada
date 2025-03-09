@@ -15,7 +15,7 @@ Guias del proyecto 💼
 3. Descargar el programa en visual studio
 4. Asegurar la conexión con la base de datos
 5. Ejecutar el programa
-Normas de contribución ✅
 
-Especificar los cambios a realizar
-Reportar los cambios mediante capturas de pantalla o código
+Normas de contribución ✅
+- Especificar los cambios a realizar
+- Reportar los cambios mediante capturas de pantalla o código
