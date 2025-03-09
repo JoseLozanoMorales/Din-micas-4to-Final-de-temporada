@@ -2,10 +2,15 @@ Objetivos ✔
 Crear un sistema de gestión de ventas para un pequeño local de venta de computadoras
 
 Roles 👤
+
 José Lozano: Lider y encargado de la documentación
+
 Jhinson Aucatoma: Programador encargado de la base de datos
+
 Jeremy Gaibor: Programador encargado de las funcionalidades en visual studio
+
 Elizabeth burgos: Diseñadora encargada de la interfaz
+
 Andy Sanchez: Diseñador encargado de la interfaz
 
 Guias del proyecto 💼
