@@ -1,0 +1,47 @@
+private void btnImprimir_Click(object sender, EventArgs e)
+{
+try
+{
+prdImprimir = new PrintDocument();
+PrinterSettings ps = new PrinterSettings();
+prdImprimir.PrinterSettings = ps;
+prdImprimir.PrintPage += Imprimir;
+prdImprimir.Print();
+}
+catch (Exception ex)
+{
+MessageBox.Show("Error al imprimir: " + ex.Message);
+}
+}
+private void Imprimir(object sender, PrintPageEventArgs e)
+{
+float y = 390;
+int id = csGlobalVariablesDV.MiVariableGlobalDV;
+string fecha = csDatosVentas.Fecha;
+string cliente = csDatosVentas.cliente;
+string proveedor = csDatosVentas.Administrador;
+string subt = csDatosVentas.Subtotal;
+string total = csDatosVentas.Ventatotal;
+//e.Graphics.DrawImage(imlImagenes.Images[0], new RectangleF(100, 0, imlImagenes.Images[0].Width / 2, imlImagenes.Images[0].Height / 2));
+Font fuente = new Font("Arial", 20, FontStyle.Bold);
+e.Graphics.DrawString("Wachiturros Center", fuente, Brushes.BlueViolet, new RectangleF(275, 20, 300, 40));
+fuente = new Font("Arial", 12, FontStyle.Bold);
+e.Graphics.DrawString("Factura:", fuente, Brushes.Black, new RectangleF(0, 100, 90, 50));
+e.Graphics.DrawString($"{id}", fuente, Brushes.Black, new RectangleF(110, 100, 130, 50));
+e.Graphics.DrawString("Fecha:", fuente, Brushes.Black, new RectangleF(0, 140, 90, 50));
+e.Graphics.DrawString($"{fecha}", fuente, Brushes.Black, new RectangleF(110, 140, 130, 50));
+e.Graphics.DrawString("Cliente:", fuente, Brushes.Black, new RectangleF(0, 180, 90, 50));
+e.Graphics.DrawString($"{cliente}", fuente, Brushes.Black, new RectangleF(110, 180, 130, 50));
+e.Graphics.DrawString("Vendedor:", fuente, Brushes.Black, new RectangleF(0, 220, 90, 50));
+e.Graphics.DrawString($"{proveedor}", fuente, Brushes.Black, new RectangleF(110, 220, 130, 50));
+fuente = new Font("Arial", 14, FontStyle.Bold);
+e.Graphics.DrawString("DETALLE", fuente, Brushes.Red, new RectangleF(0, 280, 200, 20));
+fuente = new Font("Arial", 12, FontStyle.Bold);
+e.Graphics.DrawString("Producto.", fuente, Brushes.Black, new RectangleF(30, 340, 180, 20));
+e.Graphics.DrawString("Cantidad.", fuente, Brushes.Black, new RectangleF(150, 340, 75, 20));
+e.Graphics.DrawString("Precio Unitario.", fuente, Brushes.Black, new RectangleF(250, 340, 300, 20));
+e.Graphics.DrawString("SubTotal:", fuente, Brushes.Black, new RectangleF(400, 340, 300, 20));
+e.Graphics.DrawString("Iva.", fuente, Brushes.Black, new RectangleF(650, 340, 150, 20));
+e.Graphics.DrawString("Precio Final.", fuente, Brushes.Black, new RectangleF(710, 340, 150, 20));
+e.Graphics.DrawLine(new Pen(Color.Black, 1), 0, 380, 800, 380);
+}
