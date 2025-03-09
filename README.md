@@ -16,5 +16,6 @@ Guias del proyecto 💼
 4. Asegurar la conexión con la base de datos
 5. Ejecutar el programa
 Normas de contribución ✅
+
 Especificar los cambios a realizar
 Reportar los cambios mediante capturas de pantalla o código
