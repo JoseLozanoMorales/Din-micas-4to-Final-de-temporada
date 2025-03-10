@@ -1,4 +1,5 @@
 Objetivos ✔
+
 Crear un sistema de gestión de ventas para un pequeño local de venta de computadoras
 
 Roles 👤
